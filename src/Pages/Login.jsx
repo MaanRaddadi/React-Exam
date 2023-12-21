@@ -1,6 +1,8 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+
 function Login() {
   const [userInput, setUserInput] = useState({});
   const navigate = useNavigate();
@@ -68,6 +70,13 @@ function Login() {
             />
           </div>
           <small className="text-red-500 font-bold text-md ">{error}</small>
+          <span className="text-white">
+            Don't have an Account ?{" "}
+            <Link to={"/signUp"} className="text-blue-400">
+              Sign Up
+            </Link>
+          </span>
+
           <div className="form-control mt-6">
             <button className="btn btn-primary" onClick={login}>
               Login

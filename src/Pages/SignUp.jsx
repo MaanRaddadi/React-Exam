@@ -2,7 +2,7 @@ import { useNavbar } from "@nextui-org/react";
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 function SignUp() {
   const [userInput, setUserInput] = useState({});
   const [error, setError] = useState({});
@@ -60,7 +60,7 @@ function SignUp() {
       })
       .then((res) => {
         if (res) {
-            navigate("/login")
+          navigate("/login");
         }
       });
   };
@@ -75,7 +75,6 @@ function SignUp() {
         }}
       >
         <div className="hero-overlay bg-opacity-60"></div>
-        <h1 className="text-2xl font-bold text-white">Sign Up</h1>
         <form className="card-body">
           <div className="form-control">
             <label className="label">
@@ -119,6 +118,12 @@ function SignUp() {
             />
             <span className="text-red-500">{error.password}</span>
           </div>
+          <span className="text-white">
+            Already have an Account ?{" "}
+            <Link to={"/login"} className="text-blue-400">
+              Login
+            </Link>
+          </span>
           <div className="form-control mt-6">
             <button className="btn btn-primary" onClick={register}>
               Register
